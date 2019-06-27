@@ -1,33 +1,38 @@
 class weapon:
-    dmg=0
+    def __init__(self, damage=3):
+        self.dmg=damage
 
 
-hand = weapon
-hand.dmg=0
+
+
 
 class warrior:
-    BASEHP = 120
-    BASEDAMAGE = 10
-    currenthp = BASEHP
+    def __init__(self,hp=120,damage=10):
+        self.currenthp = hp
+        self.basedamage = damage
+
+
     #weapon weapinhand = hand
     #int BASEATTACK = 5
     #int BASEDEFFENCE = 10
-    def attack(self,weapon,target):
-        return (target.currenthp - BASEDAMAGE) #+ weapon.dmg
+    def attack(self,target):
+        return (target.currenthp - self.basedamage) #+ weapon.dmg
     #def block(self):
 
     def meeting(self):
         return(" is fighter with {} HP and {} damage".format(
-            self.currenthp,self.BASEDAMAGE))
+            self.currenthp,self.basedamage))
 
 
 
 
-peter = warrior
-print(warrior.meeting(peter))
+peter = warrior()
+bob = warrior(115,15)
+print(peter.__dict__)
+print(peter.meeting())
+print(bob.meeting())
+print("Peter attacked a bob")
+bob.currenthp =(peter.attack(target=bob))
 
-
-bob = warrior
-bob.currenthp*=2
-
-print(warrior.meeting(bob))
+print(peter.meeting())
+print(bob.meeting())
