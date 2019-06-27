@@ -7,7 +7,8 @@ class weapon:
 
 
 class warrior:
-    def __init__(self,hp=100,damage=10):
+    def __init__(self,hp=100,damage=10,name="noName"):
+        self.name = name
         self.currenthp = hp
         self.basedamage = damage
 
@@ -16,22 +17,11 @@ class warrior:
     #int BASEATTACK = 5
     #int BASEDEFFENCE = 10
     def attack(self,target):
-        print(f"Has {self.basedamage} damage. His HP was {target.currenthp}.")
+        print(f"{self.name} attacked {target.name} witch {self.basedamage}")
         target.currenthp = target.currenthp - self.basedamage #+ weapon.dmg
+        print(f"{target.name} after attack have {target.currenthp}")
     #def get-damage(self,attacker):
     def meeting(self):
-        return(f" is fighter with {self.currenthp} HP and {self.basedamage} damage")
+        return(f"is fighter with {self.currenthp} HP and {self.basedamage} damage")
 
 
-
-
-peter = warrior()
-bob = warrior(200,10)
-print(peter.__dict__) # print all varriavles object peter
-print(peter.meeting())
-print(bob.meeting())
-print("Peter attacked a bob")
-
-peter.attack(bob)
-print(peter.meeting())
-print(bob.meeting())
