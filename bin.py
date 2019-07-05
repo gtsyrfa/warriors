@@ -1,16 +1,16 @@
-from testmodule import warrior
-from testmodule import weapon
-from testmodule import barbarian
+from warriors import Warrior
+from warriors import Weapon
+from warriors import Barbarian
 
 
-sword = weapon(10,5,5,"sword")
-sword_and_sheld=weapon(12,5,12,"sword_and_sheld")
-axe=weapon(12,12,5,"axe")
-
+sword = Weapon(8,5,5,"sword")
+sword_and_sheld=Weapon(12,5,12,"sword_and_sheld")
+axe=Weapon(12,12,5,"axe")
+doublehandaxe={"damage":15,"attack":15,"defence":2}
 
 if __name__ == "__main__":
-    peter = barbarian(name = "Peter",weapon = axe)
-    bob = warrior(200,5,"Bob",weapon = sword)
+    peter = Barbarian(name = "Peter",weapon = doublehandaxe)
+    bob = Warrior(200,5,"Bob",weapon = doublehandaxe)
     #print(peter.__dict__) # print all varriavles object peter
     (peter.greet())
     (bob.greet())
@@ -18,3 +18,4 @@ if __name__ == "__main__":
     #print(isinstance(peter,warrior))
     #type(peter)
     peter.fight(bob)
+
